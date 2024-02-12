@@ -31,7 +31,9 @@ foreach ($product_variations as $variation_id) :
 
   // generate product url with attributes as parameters
   $product_url = get_permalink($product->get_id());
-  $product_url = add_query_arg($attributes, $product_url);
+  $product_url = add_query_arg([
+    'location' => $loc_slug
+  ], $product_url);
 ?>
 
   <div class="wb-grid wb-location-store">

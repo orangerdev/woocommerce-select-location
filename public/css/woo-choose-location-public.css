@@ -168,7 +168,11 @@ body.wb-choose-location #header > [class*="header-wrapper"] .sticky-on > div {
 }
 
 .wb-location-store {
-	text-align: center;
+	text-align: left;
+
+	@media screen and (max-width: 768px) {
+		text-align: center;
+	}
 }
 
 .wb-location-store-name h4 {
