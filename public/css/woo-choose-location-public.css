@@ -25,6 +25,10 @@
 		flex-flow: column;
 	}
 }
+.sticky-on .wb-choose-location-wrap {
+    position: fixed;
+    top: 80px;
+}
 
 body.admin-bar .wb-choose-location-wrap {
 	top: 32px;
