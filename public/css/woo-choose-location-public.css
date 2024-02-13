@@ -1,15 +1,15 @@
-body.wb-choose-location {
+/* body.wb-choose-location {
 	margin-top: 41px;
 
 	@media screen and (max-width: 768px) {
 		margin-top: 102px;
 	}
-}
+} */
 
 .wb-choose-location-wrap {
-	position: fixed;
+	/* position: fixed;
 	top: 0;
-	left: 0;
+	left: 0; */
 	width: 100%;
 	padding: 6px 0;
 	text-align: center;
