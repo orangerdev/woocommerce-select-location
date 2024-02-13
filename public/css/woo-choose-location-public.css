@@ -226,14 +226,18 @@ body.wb-choose-location #header > [class*="header-wrapper"] .sticky-on > div {
     display: none;
 } */
 
-.woocommerce-variation-add-to-cart .wb-no-stock,
-.woocommerce-variation-add-to-cart .wb-check-location-store-wrap {
+/** has not class .variation-selected */
+.woocommerce-variation-add-to-cart:not(.variation-selected),
+.woocommerce-variation-add-to-cart.woocommerce-variation-add-to-cart-enabled.variation-selected
+	.wb-no-stock {
 	display: none;
 }
 
 .woocommerce-variation-add-to-cart.woocommerce-variation-add-to-cart-disabled.variation-selected
-	.wb-no-stock,
-.woocommerce-variation-add-to-cart.woocommerce-variation-add-to-cart-disabled.variation-selected
+	.wb-no-stock {
+	display: block;
+}
+.woocommerce-variation-add-to-cart.variation-selected
 	.wb-check-location-store-wrap {
 	display: block;
 }
