@@ -81,11 +81,23 @@ class Woo_Choose_Location_Public
 
   public function display_sticky_choose_location()
   {
+    if ( !wp_is_mobile() ) :
+      if (is_front_page() || is_product_category()) :
 
-    if (is_front_page() || is_product_category()) :
+        include WOO_CHOOSE_LOCATION_PATH . '/public/partials/choose-location.php';
 
-      include WOO_CHOOSE_LOCATION_PATH . '/public/partials/choose-location.php';
+      endif;
+    endif;
+  }
 
+  public function display_sticky_choose_location_mobile()
+  {
+    if ( wp_is_mobile() ) :
+      if (is_front_page() || is_product_category()) :
+
+        include WOO_CHOOSE_LOCATION_PATH . '/public/partials/choose-location.php';
+
+      endif;
     endif;
   }
 

@@ -176,8 +176,8 @@ class Woo_Choose_Location
 
     $this->loader->add_action('template_redirect',                        $plugin_public, 'set_location_by_url', 999);
     $this->loader->add_action('wp_footer',                                $plugin_public, 'set_location_by_external', 999, 1);
-    // $this->loader->add_action('wp_footer',                                $plugin_public, 'display_sticky_choose_location', 999, 1);
-    $this->loader->add_action('etheme_header',                            $plugin_public, 'display_sticky_choose_location', 999, 21);
+    $this->loader->add_action('etheme_header',                            $plugin_public, 'display_sticky_choose_location', 999, 34);
+    $this->loader->add_action('etheme_header_mobile',                     $plugin_public, 'display_sticky_choose_location_mobile', 999, 36);
     $this->loader->add_action('wp_enqueue_scripts',                       $plugin_public, 'enqueue_scripts', 999, 1);
     $this->loader->add_action('woocommerce_before_add_to_cart_quantity',  $plugin_public, 'display_check_location_store', -1, 1);
     $this->loader->add_action('wp_ajax_wb_get_location_store',            $plugin_public, 'ajax_get_location_stores', 999, 1);

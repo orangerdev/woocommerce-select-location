@@ -1,19 +1,8 @@
-/* body.wb-choose-location {
-	margin-top: 41px;
-
-	@media screen and (max-width: 768px) {
-		margin-top: 102px;
-	}
-} */
-
 .wb-choose-location-wrap {
-	/* position: fixed;
-	top: 0;
-	left: 0; */
 	width: 100%;
 	padding: 6px 0;
 	text-align: center;
-	z-index: 9999;
+	z-index: 999;
 	background-color: #efefef;
 	color: #202020;
 	display: flex;
@@ -28,19 +17,26 @@
 .sticky-on .wb-choose-location-wrap {
     position: fixed;
     top: 80px;
+	@media screen and (max-width: 768px) {
+		top: 60px;
+	}
 }
 body.admin-bar .sticky-on .wb-choose-location-wrap {
-    top: 118px;
+    top: 112px;
+	@media screen and (max-width: 768px) {
+		top: 60px;
+	}
 }
 
-body.wb-choose-location
-	#header.sticky-on:not([data-type="sticky"])
-	> [class*="header-wrapper"],
-body.wb-choose-location #header > [class*="header-wrapper"] .sticky-on > div {
-	top: 41px;
-
-	@media screen and (max-width: 768px) {
-		top: 58px;
+@media screen and (min-width: 601px) {
+	body.admin-bar .sticky-on .header-wrapper {
+		top: 32px !important;
+	}
+	body.admin-bar .sticky-on .mobile-header-wrapper {
+		top: 46px !important;
+	}
+	body.admin-bar .sticky-on .wb-choose-location-wrap {
+		top: 106px;
 	}
 }
 
