@@ -9,10 +9,6 @@
 	flex-flow: row;
 	align-items: center;
 	justify-content: center;
-
-	@media screen and (max-width: 768px) {
-		flex-flow: column;
-	}
 }
 .sticky-on .wb-choose-location-wrap {
     position: fixed;
