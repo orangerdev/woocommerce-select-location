@@ -29,9 +29,8 @@
     position: fixed;
     top: 80px;
 }
-
-body.admin-bar .wb-choose-location-wrap {
-	top: 32px;
+body.admin-bar .sticky-on .wb-choose-location-wrap {
+    top: 120px;
 }
 
 body.wb-choose-location
