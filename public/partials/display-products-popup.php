@@ -23,17 +23,15 @@ foreach ($product_variations as $variation_id) :
     $term = get_term_by('slug', $attr_val, $attr);
 
     if ($term) :
-      $display_attributes[] = $term->name . ':' . $attr_val;
+      $display_attributes[] = $term->name . ': ' . $attr_val;
     else :
-      $display_attributes[] = $attr . ':' . $attr_val;
+      $display_attributes[] = $attr . ': ' . $attr_val;
     endif;
   endforeach;
 
   // generate product url with attributes as parameters
   $product_url = get_permalink($product->get_id());
-  $product_url = add_query_arg([
-    'location' => $loc_slug
-  ], $product_url);
+  $product_url = add_query_arg($attributes, $product_url);
 ?>
 
   <div class="wb-grid wb-location-store">
@@ -46,9 +44,12 @@ foreach ($product_variations as $variation_id) :
       <?php if ($stock === 0) : ?>
         <p>Stok habis</p>
       <?php else : ?>
-        <a href="<?= $product_url; ?>" class="wb-location-store-choose-btn" type="button">
-          <?php _e('Beli Di Sini', 'ordv-biteship'); ?>
+        <a href="<?= $product_url; ?>" class="wb-location-store-choose-btn">
+          <?php _e("Beli Di Sini", "ordv-biteship"); ?>
         </a>
+        <!-- <button class=" wb-location-store-choose-btn" type="button" data-attribute='<?php echo json_encode($attributes); ?>' data-location='<?= $loc_name; ?>' data-slug-location='<?= $loc_slug; ?>'>
+          <?php _e('Beli Di Sini', 'ordv-biteship'); ?>
+          </button> -->
       <?php endif; ?>
     </div>
   </div>

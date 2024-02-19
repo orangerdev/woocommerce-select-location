@@ -63,8 +63,6 @@
 				$(".wb-location-stores").html("");
 			},
 			success: function (response) {
-				console.log(response);
-
 				$(".wb-popup-content-loading").hide();
 				$(".wb-location-stores").show();
 				var loc_stores_html = response.loc_stores_html;
@@ -132,20 +130,31 @@
 		var attr_val = $(value.target).data("value");
 
 		$("#wb_product_attr_" + attr_name).val(attr_val);
-
-		console.log({ attr_name, attr_val });
 	});
 
-	// $(document).on("click", ".button-variable-item", function (e) {
-	// 	console.log("button-variable-item click");
-	// 	$(e).addClass("active").siblings().removeClass("active");
-	// });
+	$(document).on("click", ".wb-location-store-choose-btn", function (e) {
+		return;
+		e.preventDefault();
 
-	// $(document).on(
-	// 	"change.wc-variation-form",
-	// 	".variations select",
-	// 	function (form) {
-	// 		console.log(form);
-	// 	}
-	// );
+		const attr = $(this).data("attribute");
+		const location = $(this).data("location");
+		const loc_slug = $(this).data("slug-location");
+
+		$.each(attr, function (key, value) {
+			const select = $("[name=" + key + "]");
+
+			//check if select has the option, if not then add it
+			if (select.find("option[value='" + value + "']").length == 0) {
+				console.log("adding option");
+				select.append(new Option(value, value)).val(value).trigger("change");
+			} else {
+				select.val(value).trigger("change");
+			}
+		});
+
+		$(".wb-loc-store-name").html(location);
+		wbSetCookie("wb_loc", loc_slug);
+		$(".wb_product_attr_pa_location").val(loc_slug);
+		$(".wb-check-location-store-close-btn").trigger("click");
+	});
 })(jQuery);

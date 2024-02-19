@@ -81,7 +81,7 @@ class Woo_Choose_Location_Public
 
   public function display_sticky_choose_location()
   {
-    if ( !wp_is_mobile() ) :
+    if (!wp_is_mobile()) :
       if (is_front_page() || is_product_category()) :
 
         include WOO_CHOOSE_LOCATION_PATH . '/public/partials/choose-location.php';
@@ -92,7 +92,7 @@ class Woo_Choose_Location_Public
 
   public function display_sticky_choose_location_mobile()
   {
-    if ( wp_is_mobile() ) :
+    if (wp_is_mobile()) :
       if (is_front_page() || is_product_category()) :
 
         include WOO_CHOOSE_LOCATION_PATH . '/public/partials/choose-location.php';
@@ -251,6 +251,17 @@ class Woo_Choose_Location_Public
         $url = strtok($_SERVER["REQUEST_URI"], '?');
         wp_redirect($url);
         exit;
+      endif;
+
+    elseif (isset($_GET['attribute_pa_location'])) :
+      // check if location is valid
+      $loc_slug = sanitize_text_field($_GET['attribute_pa_location']);
+      $loc_term = get_term_by('slug', $loc_slug, 'pa_location');
+
+      if ($loc_term) :
+
+        // set location to cookie
+        setcookie('wb_loc', $loc_slug, time() + (86400 * 30), "/");
       endif;
     endif;
   }

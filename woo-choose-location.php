@@ -16,7 +16,7 @@
  * Plugin Name:       Woo Choose Location
  * Plugin URI:        https://https://ridwan-arifandi.com/
  * Description:       Special plugin for ranksports.id
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            OrangerDev Team
  * Author URI:        https://https://ridwan-arifandi.com//
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('WOO_CHOOSE_LOCATION_VERSION', '1.0.2');
+define('WOO_CHOOSE_LOCATION_VERSION', '1.0.4');
 
 define('WOO_CHOOSE_LOCATION_PATH', plugin_dir_path(__FILE__));
 define('WOO_CHOOSE_LOCATION_URI', plugin_dir_url(__FILE__));
