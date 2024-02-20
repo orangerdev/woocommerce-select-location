@@ -33,8 +33,11 @@ endif;
 ?>
 <div class="wb-check-location-store-wrap">
   <input type="hidden" name="wb_product_id" id="wb_product_id" value="<?php echo get_the_ID(); ?>">
-  <?php foreach ($attributes as $attr) : ?>
-    <input type="hidden" class="wb_product_attr" id="wb_product_attr_<?= $attr; ?>" data-attr="<?= $attr; ?>" value="">
+  <?php
+  foreach ($attributes as $attr) :
+    $value = isset($_GET['attribute_' . $attr]) ? sanitize_text_field($_GET['attribute_' . $attr]) : '';
+  ?>
+    <input type="hidden" class="wb_product_attr" id="wb_product_attr_<?= $attr; ?>" data-attr="<?= $attr; ?>" value="<?= $value; ?>">
   <?php endforeach; ?>
   <input type="hidden" class="wb_product_attr" id="wb_product_attr_pa_location" data-attr="pa_location" value="<?= $loc_value; ?>">
   <button type="button" class="wb-check-location-store-open-btn"><?php _e('Cek Di Toko Lain', 'woo-chose-location'); ?></button>
